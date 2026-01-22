@@ -2,7 +2,7 @@
 
 A timed quiz application built with Jetpack Compose that fetches trivia questions from a public API. The app features a 10-second countdown timer per question, instant feedback, and state preservation across configuration changes. 
 
-Apk is in the project level folder by name: [StudentQuizApp.apk](https://github.com/Achuthasandesh/student_quiz_app/blob/d15be4cfb481b7f8beadf74f2378e5e2a350fccd/StudentQuizApp.apk)
+Apk is in the project level folder by name: [StudentQuizApp.apk](https://github.com/Achuthasandesh/student_quiz_app/blob/main/StudentQuizApp.apk)
 ## Screenshots
 
 <p align="center">
