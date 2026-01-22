@@ -5,12 +5,16 @@ import androidx.compose.animation.core.tween
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.WindowInsets
+import androidx.compose.foundation.layout.asPaddingValues
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.safeDrawing
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
@@ -41,7 +45,6 @@ import com.android.student_quiz_app.data.model.Question
 import com.android.student_quiz_app.ui.state.QuizState
 import com.android.student_quiz_app.ui.theme.BackgroundBlue
 
-
 @Composable
 fun ResultScreen(
     resultState: QuizState.Result,
@@ -60,20 +63,24 @@ fun ResultScreen(
         label = "scale"
     )
     
+    val safeDrawingPadding = WindowInsets.safeDrawing.asPaddingValues()
+    
     Box(
         modifier = modifier
             .fillMaxSize()
             .background(BackgroundBlue)
     ) {
         LazyColumn(
-            modifier = Modifier
-                .fillMaxSize()
-                .padding(20.dp),
+            modifier = Modifier.fillMaxSize(),
+            contentPadding = PaddingValues(
+                start = 20.dp,
+                end = 20.dp,
+                top = safeDrawingPadding.calculateTopPadding() + 20.dp,
+                bottom = safeDrawingPadding.calculateBottomPadding() + 20.dp
+            ),
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
             item {
-                Spacer(modifier = Modifier.height(20.dp))
-                
                 ScoreSection(
                     correctAnswers = resultState.correctAnswers,
                     totalQuestions = resultState.totalQuestions,
@@ -124,10 +131,6 @@ fun ResultScreen(
                     question = question
                 )
                 Spacer(modifier = Modifier.height(12.dp))
-            }
-            
-            item {
-                Spacer(modifier = Modifier.height(20.dp))
             }
         }
     }
