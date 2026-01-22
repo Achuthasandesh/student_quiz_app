@@ -5,8 +5,6 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
@@ -27,11 +25,7 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             Student_quiz_appTheme {
-                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    QuizApp(
-                        modifier = Modifier.padding(innerPadding)
-                    )
-                }
+                QuizApp(modifier = Modifier.fillMaxSize())
             }
         }
     }
@@ -75,7 +69,7 @@ fun QuizApp(
         is QuizState.Error -> {
             ErrorScreen(
                 message = state.message,
-                onRetry =  viewModel::retry,
+                onRetry = viewModel::retry,
                 modifier = modifier
             )
         }
