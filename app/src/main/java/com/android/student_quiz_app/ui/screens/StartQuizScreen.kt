@@ -32,8 +32,8 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.android.student_quiz_app.ui.theme.BackgroundBlue
 
-private val BackgroundBlue = Color(0xFF1565C0)
 
 @Composable
 fun StartQuizScreen(
